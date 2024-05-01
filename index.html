@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>買い物リスト</title>
+  </head>
+  <body>
+    <div>
+      <h2>買い物リスト</h2>
+      <div id="itemInputs">
+        <div>
+          <input type="date" id="date" name="date" />
+        </div>
+        <div>
+          <input type="text" name="item" />
+        </div>
+      </div>
+      <button type="button" onclick="addItem()">アイテム追加</button>
+      <button type="button" onclick="saveItem()">データ保存</button>
+    </div>
+    <!-- 買い物リスト出力先の要素 -->
+    <div id="output"></div>
+    <!-- main.jsを読み込む -->
+    <script src="main.js"></script>
+  </body>
+</html>
