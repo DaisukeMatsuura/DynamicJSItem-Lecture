@@ -70,7 +70,7 @@ function saveItem() {
   // データは、key を shopList、value に JSON文字列 を LocalStorage に格納する
   // (JSON文字列とは "日付"：[アイテムの配列] のJSONデータをコンマで繋いだ文字列）
 
-  // アイテムを追加しやすいように LocalStorage のデータはパースして配列にしておく
+  // アイテムを追加しやすいように LocalStorage のデータはパースしてオブジェクトに変換しておく
   const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || {};
 
   // 日付をキーにアイテムリストをバリューにして既存データに追加する
