@@ -44,7 +44,14 @@ function deleteItem(button) {
 function saveItem() {
   console.log("saveItem 実行!");
 
-  // ここに保存ボタンを押した時の処理を書く
+  // 日付を取得し、未入力の場合はアラートを出力する
+  const inputDateValue = document.getElementById("date").value;
+  if (!inputDateValue) {
+    alert("日付を入力してください");
+    // 未入力の場合は登録処理をしないのでここで関数を終了する
+    return;
+  }
+  console.log("日付：", inputDateValue);
 }
 
 function loadItems() {
