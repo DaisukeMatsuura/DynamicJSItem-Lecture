@@ -10,11 +10,21 @@ function addItem() {
 
   // 挿入するDivを作成する
   const newItemDiv = document.createElement("div");
+  newItemDiv.classList.add("flex", "justify-between", "items-center", "mb-4");
 
   // 挿入するInputを作成し、type・name をそれぞれ指定する
   const newItemInput = document.createElement("input");
   newItemInput.type = "text";
   newItemInput.name = "item";
+  newItemInput.classList.add(
+    "border",
+    "border-gray-300",
+    "px-3",
+    "py-2",
+    "rounded",
+    "w-3/4",
+    "mr-2"
+  );
 
   // 追加したInputを削除するためのボタンを作成し、
   // textContent・typeを指定する
@@ -22,6 +32,17 @@ function addItem() {
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "削除";
   deleteButton.type = "button";
+  deleteButton.classList.add(
+    "bg-red-500",
+    "text-white",
+    "px-4",
+    "py-2",
+    "rounded",
+    "hover:bg-red-600",
+    "transition",
+    "duration-200"
+  );
+
   deleteButton.addEventListener("click", function () {
     deleteItem(this);
   });
@@ -100,9 +121,11 @@ function loadItems() {
 
     // 大外の枠（カード）
     const cardDiv = document.createElement("div");
+    cardDiv.classList.add("rounded-lg", "overflow-hidden", "bg-white", "shadow-md", "mb-4");
 
     // 日付を表示するタイトル枠
     const headerDiv = document.createElement("div");
+    headerDiv.classList.add("bg-amber-200", "px-4", "py-2");
     const title = document.createElement("h4");
     title.textContent = "日付：" + date;
 
@@ -113,8 +136,10 @@ function loadItems() {
 
     // 買い物リスト格納する枠
     const bodyDiv = document.createElement("div");
+    bodyDiv.classList.add("px-4", "py-2");
     // 買い物リストを ul/li を用いてリスト形式で格納
     const ul = document.createElement("ul");
+    ul.classList.add("list-disc", "ml-6");
     items.forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;

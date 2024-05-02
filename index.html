@@ -4,23 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>買い物リスト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div>
-      <h2>買い物リスト</h2>
+  <body class="bg-gray-100 py-8">
+    <div class="max-w-md mx-auto bg-white rounded-lg p-8 shadow-md">
+      <h2 class="text-3xl mb-6">買い物リスト</h2>
       <div id="itemInputs">
-        <div>
-          <input type="date" id="date" name="date" />
+        <div class="mb-4">
+          <input
+            type="date"
+            id="date"
+            name="date"
+            class="border border-gray-300 px-3 py-2 rounded w-full"
+          />
         </div>
-        <div>
-          <input type="text" name="item" />
+        <div class="flex justify-between mb-4">
+          <input
+            type="text"
+            name="item"
+            class="border border-gray-300 px-3 py-2 rounded w-3/4 mr-2"
+          />
         </div>
       </div>
-      <button type="button" onclick="addItem()">アイテム追加</button>
-      <button type="button" onclick="saveItem()">データ保存</button>
+      <button
+        type="button"
+        onclick="addItem()"
+        class="bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-blue-600 transition duration-200"
+      >
+        アイテム追加
+      </button>
+      <button
+        type="button"
+        onclick="saveItem()"
+        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
+      >
+        データ保存
+      </button>
     </div>
     <!-- 買い物リスト出力先の要素 -->
-    <div id="output"></div>
+    <div id="output" class="mt-8 max-w-md mx-auto"></div>
     <!-- main.jsを読み込む -->
     <script src="main.js"></script>
   </body>
