@@ -87,7 +87,47 @@ function saveItem() {
 function loadItems() {
   console.log("loadItems 実行!");
 
-  // ここに保存したデータを読み込む処理を書く
+  // LocalStorage からデータを取得する
+  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || {};
+
+  // 買い物リストの表示領域
+  const outputDiv = document.getElementById("output");
+
+  // 取得したデータを forEach でループ処理をして表示領域に日付ごとの要素を追加していく
+  Object.keys(shoppingList).forEach((date) => {
+    // date を指定して買い物リストを格納
+    const items = shoppingList[date];
+
+    // 大外の枠（カード）
+    const cardDiv = document.createElement("div");
+
+    // 日付を表示するタイトル枠
+    const headerDiv = document.createElement("div");
+    const title = document.createElement("h4");
+    title.textContent = "日付：" + date;
+
+    // タイトル枠にタイトルを挿入
+    headerDiv.appendChild(title);
+    // カード内にタイトル枠を挿入
+    cardDiv.appendChild(headerDiv);
+
+    // 買い物リスト格納する枠
+    const bodyDiv = document.createElement("div");
+    // 買い物リストを ul/li を用いてリスト形式で格納
+    const ul = document.createElement("ul");
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    bodyDiv.appendChild(ul);
+
+    // 買い物リストを大外の枠内に格納
+    cardDiv.appendChild(bodyDiv);
+
+    // 買い物リストの表示領域に作成したカードを挿入
+    outputDiv.appendChild(cardDiv);
+  });
 }
 
 // 初期表示時に保存されたデータを表示
