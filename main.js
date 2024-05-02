@@ -65,7 +65,23 @@ function saveItem() {
     // 未入力の場合は登録処理をしないのでここで関数を終了する
     return;
   }
-  console.log("買い物リスト：",items)
+  console.log("買い物リスト：", items);
+
+  // データは、key を shopList、value に JSON文字列 を LocalStorage に格納する
+  // (JSON文字列とは "日付"：[アイテムの配列] のJSONデータをコンマで繋いだ文字列）
+
+  // アイテムを追加しやすいように LocalStorage のデータはパースして配列にしておく
+  const shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || {};
+
+  // 日付をキーにアイテムリストをバリューにして既存データに追加する
+  shoppingList[inputDateValue] = items;
+
+  // 登録時はJSONデータを文字列に変換する
+  localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+
+  //登録後は完了メッセージを表示してページリロードを行う
+  alert("データを登録しました");
+  location.reload();
 }
 
 function loadItems() {
