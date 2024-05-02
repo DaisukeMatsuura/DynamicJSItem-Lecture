@@ -52,6 +52,20 @@ function saveItem() {
     return;
   }
   console.log("日付：", inputDateValue);
+
+  // 入力されたアイテムのリストを取得し、空欄データを除いた登録用の配列を作成する
+  const inputItemValues = document.querySelectorAll("#itemInputs input[name='item']");
+  const items = Array.from(inputItemValues)
+    .map((input) => input.value.trim())
+    .filter((item) => item !== "");
+
+  // アイテムが１件も無いん場合はアラートを出力する
+  if (!items.length) {
+    alert("アイテムを１件以上入力してください");
+    // 未入力の場合は登録処理をしないのでここで関数を終了する
+    return;
+  }
+  console.log("買い物リスト：",items)
 }
 
 function loadItems() {
