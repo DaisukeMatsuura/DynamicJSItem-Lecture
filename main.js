@@ -11,12 +11,12 @@ function addItem() {
 
   const newItemInput = document.createElement("input");
   newItemInput.type = "text";
-  newItemInput.className = "item";
+  newItemInput.name = "item";
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "削除";
   deleteButton.type = "button";
-  deleteButton.addEventListener("click", function() {
+  deleteButton.addEventListener("click", function () {
     deleteItem(this);
   });
 
