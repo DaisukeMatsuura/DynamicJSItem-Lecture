@@ -37,7 +37,8 @@ function addItem() {
 function deleteItem(button) {
   console.log("deleteItem 実行!");
 
-  // ここに削除ボタンを押した時の処理を書く
+  // 押下されたボタンからInputとButtonを含む１つ上の親NodeであるDivを削除
+  button.parentElement.remove();
 }
 
 function saveItem() {
